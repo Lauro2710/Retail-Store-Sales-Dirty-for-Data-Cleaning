@@ -1,0 +1,48 @@
+# Retail Store Sales — Limpieza y Análisis de Datos
+
+## Descripción del proyecto
+Este proyecto consiste en la limpieza y análisis exploratorio de un dataset de transacciones de una tienda retail, usando MySQL para el procesamiento de datos. El dataset fue diseñado intencionalmente con inconsistencias ("dirty data") para practicar detección y tratamiento de valores nulos, duplicados y errores de formato.
+
+## Fuente de datos
+- **Dataset:** Retail Store Sales: Dirty for Data Cleaning
+- **Fuente:** [Kaggle](https://www.kaggle.com/datasets/ahmedmohamed2003/retail-store-sales-dirty-for-data-cleaning)
+- **Filas:** 12,575
+- **Columnas:** 11
+
+## Estructura del dataset
+
+| Columna | Descripción |
+|---|---|
+| Transaction_ID | Identificador único de transacción |
+| Customer_ID | Identificador del cliente |
+| Category | Categoría del producto (8 categorías) |
+| Item | Producto específico |
+| Price_Per_Unit | Precio unitario |
+| Quantity | Cantidad comprada |
+| Total_Spent | Total gastado |
+| Payment_Method | Método de pago  |
+| Location | Ubicación de la compra |
+| Transaction_Date | Fecha de la transacción |
+| Discount_Applied | Si se aplicó descuento (True/False) |
+
+## Herramientas utilizadas
+- MySQL 8.0 (limpieza y análisis mediante SQL)
+- MySQL Workbench / CLI
+
+## Hallazgos de calidad de datos
+
+| Columna | Estado |
+|---|---|
+| Transaction_ID | ✅ Sin nulos, formato consistente |
+| Customer_ID | ✅ Sin problemas |
+| Category | ✅ 8 categorías, sin nulos ni duplicados |
+| Item | ⚠️ 1,213 filas sin valor |
+| Price_Per_Unit | ⚠️ 609 filas sin valor (subconjunto de las filas sin Item) |
+| Quantity | ⚠️ 604 filas sin valor (subconjunto de las filas sin Item) |
+| Total_Spent | ⚠️ 604 filas sin valor, coincide con las de Quantity |
+| Payment_Method | ✅ 3 categorías, sin nulos |
+| Location | ✅ Online / In-store, sin nulos |
+| Transaction_Date | ✅ Sin nulos |
+| Discount_Applied | ⚠️ 4,199 filas sin valor, sin correlación con otras columnas |
+
+**Nota sobre consistencia:** de las 11,362 filas donde `Price_Per_Unit`, `Quantity` y `Total_Spent` están presentes, el 100% cumple `Price_Per_Unit × Quantity = Total_Spent`, confirmando que no hay errores de cálculo, solo de captura de datos faltante.

@@ -46,3 +46,4 @@ Este proyecto consiste en la limpieza y análisis exploratorio de un dataset de 
 | Discount_Applied | ⚠️ 4,199 filas sin valor, sin correlación con otras columnas |
 
 **Nota sobre consistencia:** de las 11,362 filas donde `Price_Per_Unit`, `Quantity` y `Total_Spent` están presentes, el 100% cumple `Price_Per_Unit × Quantity = Total_Spent`, confirmando que no hay errores de cálculo, solo de captura de datos faltante.
+

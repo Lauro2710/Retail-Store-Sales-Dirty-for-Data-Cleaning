@@ -1,16 +1,12 @@
 # Retail Store Sales — Limpieza y Análisis de Datos
-
 ## Descripción del proyecto
 Este proyecto consiste en la limpieza y análisis exploratorio de un dataset de transacciones de una tienda retail, usando MySQL para el procesamiento de datos. El dataset fue diseñado intencionalmente con inconsistencias ("dirty data") para practicar detección y tratamiento de valores nulos, duplicados y errores de formato.
-
 ## Fuente de datos
 - **Dataset:** Retail Store Sales: Dirty for Data Cleaning
 - **Fuente:** [Kaggle](https://www.kaggle.com/datasets/ahmedmohamed2003/retail-store-sales-dirty-for-data-cleaning)
 - **Filas:** 12,575
 - **Columnas:** 11
-
 ## Estructura del dataset
-
 | Columna | Descripción |
 |---|---|
 | Transaction_ID | Identificador único de transacción |
@@ -24,13 +20,10 @@ Este proyecto consiste en la limpieza y análisis exploratorio de un dataset de 
 | Location | Ubicación de la compra |
 | Transaction_Date | Fecha de la transacción |
 | Discount_Applied | Si se aplicó descuento (True/False) |
-
 ## Herramientas utilizadas
 - MySQL 8.0 (limpieza y análisis mediante SQL)
 - MySQL Workbench / CLI
-
 ## Hallazgos de calidad de datos
-
 | Columna | Estado |
 |---|---|
 | Transaction_ID | ✅ Sin nulos, formato consistente |
@@ -44,6 +37,4 @@ Este proyecto consiste en la limpieza y análisis exploratorio de un dataset de 
 | Location | ✅ Online / In-store, sin nulos |
 | Transaction_Date | ✅ Sin nulos |
 | Discount_Applied | ⚠️ 4,199 filas sin valor, sin correlación con otras columnas |
-
 **Nota sobre consistencia:** de las 11,362 filas donde `Price_Per_Unit`, `Quantity` y `Total_Spent` están presentes, el 100% cumple `Price_Per_Unit × Quantity = Total_Spent`, confirmando que no hay errores de cálculo, solo de captura de datos faltante.
-
